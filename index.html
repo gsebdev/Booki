@@ -6,6 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/376f84cdfd.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="mainContainer">
@@ -21,7 +22,41 @@
                 </nav>
             </header>
             <main>
-                
+                <section id="searchSection">
+                    <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
+                    <p>En plein centre-ville ou en pleine nature</p>
+                    <form action="#" method="post">
+                        <div id="searchBox">
+                            <span id="locationIcon"><i class="fa-solid fa-location-dot"></i></span>
+                            <input id="locationInput" name="location" type="text" value="Marseille, France">
+                            <input id="locationSubmit" value="Rechercher" type="submit">
+                        </div>
+                        <fieldset id="searchFilters">
+                            <p>Filtres</p>
+                            <div>
+                                <input id="filterEco" type="checkbox">
+                                <label for="filterEco"><i class="fa-solid fa-money-bill-wave"></i>économique</label>
+                            </div>
+                            <div>
+                                <input id="filterFamilial" type="checkbox">
+                                <label for="filterFamilial"><i class="fa-sharp fa-solid fa-person"></i>familial</label>
+                            </div>
+                            <div>
+                                <input id="filterRomantique" type="checkbox">
+                                <label for="filterRomantique"><i class="fa-solid fa-heart"></i>romantique</label>
+                            </div>
+                            <div>
+                                <input id="filterAnimaux" type="checkbox">
+                                <label for="filterAnimaux"><i class="fa-solid fa-dog"></i>animaux autorisés</label>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                    <div id="searchInfo">
+                        <span><i class="fa-solid fa-info"></i></span>
+                        <span>Plus de 500 logements sont disponibles dans cette ville</span>
+                    </div>
+                </section>
             </main>
         </div>
 

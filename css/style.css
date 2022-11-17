@@ -1,9 +1,10 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 :root {
     --primary: #0065FC;
     --secondary: #DEEBFF;
     --grey: #D9D9D9;
+    --light-grey: #F2F2F2;
 }
 body {
     font-family: 'Raleway', sans-serif;
@@ -16,8 +17,11 @@ p, a {
     font-weight: 400;
     font-size: 1em;
     color: #000000;
+    margin:0
 }
-
+h1 {
+    margin: 0;
+}
 
 h2 {
     font-weight: 700;
@@ -31,11 +35,15 @@ h3 {
 ul {
     list-style-type: none;
 }
-
+input {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
 #mainContainer {
     max-width: 1400px;
-    padding: 0 50px 0 50px;
-    margin:auto;
+    padding: 0 50px;
+    margin: 0 auto;
 }
 
 /* HEADER STYLING */
@@ -86,4 +94,100 @@ header {
     transition: text-shadow .2s;
     color: var(--primary);
     border-top: solid var(--primary) 2px;
+}
+
+
+
+/* SEARCH STYLING */
+#searchSection{
+    margin-top: 63px;
+}
+#searchSection h1 + p {
+    margin-top: 8px;
+}
+#searchBox {
+    margin: 20px 0 31px;
+    display: flex;
+    height: 49px;
+    font-size: 1.125em;
+    font-weight: 700;
+}
+#searchBox #locationIcon {
+    display: flex;
+    height: 49px;
+    width: 50px;
+    border-radius: 15px 0px 0px 15px;
+    background-color: var(--light-grey);
+    align-items: center;
+    justify-content: center;
+}
+#searchBox #locationInput {
+    border: 1px solid var(--light-grey);
+    padding-left: 16px;
+
+}
+#searchBox #locationInput:focus {
+    outline: 0;
+}
+#searchBox #locationSubmit {
+    background-color: var(--primary);
+    border: 0;
+    border-radius: 0px 15px 15px 0px;
+    color: #FFFFFF;
+    padding: 14px 16px;
+    cursor: pointer;
+}
+
+#searchFilters {
+    display: flex;
+    border: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 12px 0;
+    margin: 0 0 40px;
+
+}
+#searchFilters p {
+    font-size: 1.125em;
+    font-weight: 700;
+    margin: 0 1vw 0 0px;
+}
+#searchFilters input {
+    display: none;
+}
+#searchFilters label {
+    cursor: pointer;
+    margin: auto 1vw;
+    padding: 14px 20px;
+    border: 2px solid var(--grey);
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 1.0625em;
+    font-weight: 700;
+}
+#searchFilters label i {
+    padding: 0px 10px 0px 0px;
+    color: var(--primary);
+    font-size: 1.3em;
+}
+#searchFilters input:checked + label {
+    background-color: var(--secondary);
+}
+#searchInfo {
+    display: flex;
+    align-items: center;
+}
+#searchInfo span:nth-child(1) {
+    color: var(--primary);
+    border: 1px solid var(--grey);
+    box-sizing: border-box;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.63em;
+    margin: 0px 11px 0 9px;
 }
