@@ -6,6 +6,9 @@
     --grey: #D9D9D9;
     --light-grey: #F2F2F2;
 }
+html {
+    scroll-behavior: smooth;
+  }
 body {
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
@@ -37,6 +40,7 @@ h3 {
 }
 ul {
     list-style-type: none;
+    padding-left: 0;
 }
 input {
     font-family: 'Raleway', sans-serif;
@@ -44,7 +48,8 @@ input {
     font-size: 18px;
 }
 #mainContainer {
-    max-width: 1400px;
+    max-width: 1440px;
+    box-sizing: border-box;
     padding: 0 50px;
     margin: 0 auto;
 }
@@ -181,7 +186,7 @@ header {
     color: var(--primary);
     font-size: 1.3em;
 }
-#searchFilters input:checked + label {
+#searchFilters input:checked + label, #searchFilters label:hover {
     background-color: var(--secondary);
 }
 #searchInfo {
@@ -206,7 +211,7 @@ header {
 /* general accomodation section styles */
 #accomodationSection {
     display: flex;
-    margin-top: 40px;
+    margin-top: 37px;
     gap: 40px;
     
 }
@@ -221,17 +226,16 @@ header {
 }
 .rating {
     color: var(--primary);
-    margin-top: 9px;
     font-size: 0.7em;
 }
 .rating .inactive {
     color: var(--grey);
 }
 
-/* accomodation section left container styling */
+/* Style Section hébergment conteneur de gauche "hébergements à Marseille" */
 
 #accomodationSection #containerLeft {
-    flex: 2.1;
+    flex: 2.12;
     padding-bottom: 46px;
 }
 #accomodationSection #containerLeft>a:last-of-type{
@@ -239,23 +243,26 @@ header {
 }
 
 .accomodation-card {
-    width: 31%;
+    width: 30.75%;
     display: block;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
     background-color: #FFFFFF;
-    margin-bottom: 2vw;
+    margin-bottom: 30px;
 }
-.accomodation-card:nth-child(3n+2){
-    margin-left:3.5%;
-    margin-right: 3.5%;
+
+.accomodation-card .bottom-container {
+    margin: 0px 16px;
+    padding-bottom: 10px;
+    height: 71px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.accomodation-card>div {
-    margin: 0px 16px 11px;
-}
-.accomodation-card h3 {
-    margin-bottom: 9px;
+.accomodation-card .bottom-container p{
+    font-size: 0.875em;
 }
 .accomodation-card img{
     object-fit: cover;
@@ -268,10 +275,11 @@ header {
 .accomodation-card-container {
     display:flex ;
     flex-wrap: wrap;
+    justify-content:space-between ;
     margin-bottom: 10px;
 }
 
-/* accomodation section Right container styling */
+/* Style du conteneur de droite 'les plus populaires' dans hébergement */
 
 #accomodationSection #containerRight {
     flex: 0.9;
@@ -291,7 +299,7 @@ header {
     background-color: #FFFFFF;
     border-radius: 20px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    margin-bottom: 33px;
 }
 .popular-card img {
     width: 37%;
@@ -299,10 +307,75 @@ header {
     height: 144px ;
     border: 5px solid #FFFFFF;
     border-radius: 20px 0px 0px 20px;
+    box-sizing: border-box;
 }
-.popular-card>div {
+.popular-card .right-container {
     padding: 16px 22px 12px 15px;
+    display:flex;
+    flex-direction: column;
+}
+.popular-card .right-container p {
+    margin-top: 6px;
+    font-size: 0.875em;
 }
 .popular-card .rating {
     margin-top: auto;
+}
+
+
+/* Style de la section activités */
+#activities {
+   padding-top: 60px;
+   padding-bottom: 60px;
+}
+#activities>div {
+    padding-top: 23px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.activity-card {
+    width: 22.6%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+}
+.activity-card img {
+    object-fit: cover;
+    width: 100%;
+    height: 445px;
+    border-radius: 20px;
+}
+.activity-card h3 {
+    position: absolute;
+    bottom: 0px;
+    background-color: #FFFFFF;
+    width: 100%;
+    line-height:56px;
+    padding-left: 19px;
+    padding-right: 19px;
+    box-sizing: border-box;
+}
+
+
+/* Style du footer */
+footer {
+    background-color: var(--light-grey);
+    padding: 45px 70px 58px;
+}
+footer nav{
+    display: flex;
+    
+}
+footer nav>div:nth-child(n+2) {
+    margin-left: 20%;
+}
+footer ul {
+    margin-top: 14px;
+    margin-bottom: 0px;
+}
+footer ul li {
+    line-height: 31px;
 }
