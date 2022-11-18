@@ -29,27 +29,28 @@
                         <div id="searchBox">
                             <span id="locationIcon"><i class="fa-solid fa-location-dot"></i></span>
                             <input id="locationInput" name="location" type="text" value="Marseille, France">
-                            <input id="locationSubmit" value="Rechercher" type="submit">
+                            <button id="locationSubmit" type="submit"><span>Rechercher</span><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                         <fieldset id="searchFilters">
                             <p>Filtres</p>
-                            <div>
-                                <input id="filterEco" type="checkbox">
-                                <label for="filterEco"><i class="fa-solid fa-money-bill-wave"></i>économique</label>
+                            <div class="filter-buttons-container">
+                                <div>
+                                    <input id="filterEco" type="checkbox">
+                                    <label for="filterEco"><i class="fa-solid fa-money-bill-wave"></i>économique</label>
+                                </div>
+                                <div>
+                                    <input id="filterFamilial" type="checkbox">
+                                    <label for="filterFamilial"><i class="fa-sharp fa-solid fa-person"></i>familial</label>
+                                </div>
+                                <div>
+                                    <input id="filterRomantique" type="checkbox">
+                                    <label for="filterRomantique"><i class="fa-solid fa-heart"></i>romantique</label>
+                                </div>
+                                <div>
+                                    <input id="filterAnimaux" type="checkbox">
+                                    <label for="filterAnimaux"><i class="fa-solid fa-dog"></i>animaux autorisés</label>
+                                </div>
                             </div>
-                            <div>
-                                <input id="filterFamilial" type="checkbox">
-                                <label for="filterFamilial"><i class="fa-sharp fa-solid fa-person"></i>familial</label>
-                            </div>
-                            <div>
-                                <input id="filterRomantique" type="checkbox">
-                                <label for="filterRomantique"><i class="fa-solid fa-heart"></i>romantique</label>
-                            </div>
-                            <div>
-                                <input id="filterAnimaux" type="checkbox">
-                                <label for="filterAnimaux"><i class="fa-solid fa-dog"></i>animaux autorisés</label>
-                            </div>
-
                         </fieldset>
                     </form>
                     <div id="searchInfo">
@@ -165,9 +166,9 @@
                             <h2>Les plus populaires</h2>
                             <span><i class="fa-solid fa-chart-line"></i></span>
                         </div>
-                        <div>
-                            <article>
-                                <a class="popular-card" href="">
+                        <div class="most-popular-container">
+                            <article class="popular-card">
+                                <a href="">
                                     <img src="assets/hebergements/4_small/emile-guillemot-Bj_rcSC5XfE-unsplash.jpg" alt="">
                                     <div class="right-container">
                                         <h3>Hôtel Le soleil du matin</h3>
@@ -182,8 +183,8 @@
                                     </div>
                                 </a>
                             </article>
-                            <article>
-                                <a class="popular-card" href="">
+                            <article class="popular-card">
+                                <a href="">
                                     <img src="assets/hebergements/4_small/aw-creative-VGs8z60yT2c-unsplash.jpg" alt="">
                                     <div class="right-container">
                                         <h3>Chambres d'hôtes Au cœur de l'eau</h3>
@@ -198,8 +199,8 @@
                                     </div>
                                 </a>
                             </article>
-                            <article>
-                                <a class="popular-card" href="">
+                            <article class="popular-card">
+                                <a href="">
                                     <img src="assets/hebergements/4_small/febrian-zakaria-sjvU0THccQA-unsplash.jpg" alt="">
                                     <div class="right-container">
                                         <h3>Hôtel Bleu et Blanc</h3>

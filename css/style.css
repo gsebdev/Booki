@@ -5,6 +5,11 @@
     --secondary: #DEEBFF;
     --grey: #D9D9D9;
     --light-grey: #F2F2F2;
+    --dark-grey: #595959;
+    --selected: #c4dbff;
+
+    --max-desktop-width: 1440px;
+    --filters-gap: 36px;
 }
 html {
     scroll-behavior: smooth;
@@ -23,6 +28,7 @@ p, a {
     margin:0;
     text-decoration : none;
 }
+
 h1 {
     margin: 0;
 }
@@ -42,25 +48,26 @@ ul {
     list-style-type: none;
     padding-left: 0;
 }
-input {
+input, button {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 18px;
 }
 #mainContainer {
-    max-width: 1440px;
+    max-width: var(--max-desktop-width);
     box-sizing: border-box;
     padding: 0 50px;
     margin: 0 auto;
 }
-/* Class tool definition */
+/* Definition de classes générales */
 .bigger {
     font-size: 1.125em;
 }
 .bold {
     font-weight: 700;
 }
-/* HEADER STYLING */
+
+/* Style du header */
 header {
     width: 100%;
     display: flex;
@@ -86,20 +93,18 @@ header {
     padding: 0;
 
 }
-#topNavigation ul li {
-    padding: 0 34px 0 34px;
-}
+
 #topNavigation ul li a{
+    padding: 0 34px 0 34px;
     text-decoration: none;
-    align-self: flex-end;
     text-decoration: none;
     height: 100%;
     display: flex;
     align-items: end;
     box-sizing: border-box;
 }
-#topNavigation ul li a:hover{
-    /* text-shadow replaces the font-weight:500 because it's better for animation*/
+#topNavigation ul li a:hover, #topNavigation ul li a:active, #topNavigation ul li a:focus{
+    /* text-shadow imite le style font-weight:500, cela permet une meilleure transition*/
     text-shadow:
     -0.1px -0.1px 0 var(--primary),
     0.1px -0.1px 0 var(--primary),
@@ -112,7 +117,7 @@ header {
 
 
 
-/* SEARCH STYLING */
+/* Style de la section recherche */
 #searchSection{
     margin-top: 63px;
 }
@@ -130,6 +135,7 @@ header {
     display: flex;
     height: 49px;
     width: 50px;
+    min-width: 50px;
     border-radius: 15px 0px 0px 15px;
     background-color: var(--light-grey);
     align-items: center;
@@ -150,44 +156,64 @@ header {
     color: #FFFFFF;
     padding: 14px 16px;
     cursor: pointer;
+    min-width: 50px;
+    min-height: 49px;
+}
+#searchBox #locationSubmit i{
+    display: none;
 }
 
 #searchFilters {
     display: flex;
+    flex-direction: row;
     border: 0;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 0 12px 0;
     margin: 0 0 40px;
 
 }
+.filter-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin: calc(-1 * var(--filters-gap)) 0 0 calc(-1 * var(--filters-gap));
+}
 #searchFilters p {
     font-size: 1.125em;
     font-weight: 700;
-    margin: 0 1vw 0 0px;
+    margin: 0 32px 0 0px;
 }
 #searchFilters input {
     display: none;
 }
 #searchFilters label {
     cursor: pointer;
-    margin: auto 1vw;
     padding: 14px 20px;
+    margin: var(--filters-gap) 0 0 var(--filters-gap);
     border: 2px solid var(--grey);
     border-radius: 25px;
     display: flex;
     flex-wrap: nowrap;
+    align-items: center;
     font-size: 1.0625em;
     font-weight: 700;
-    text-transform: capitalize;
+    min-height: 50px;
+    box-sizing: border-box;
+    
 }
 #searchFilters label i {
     padding: 0px 10px 0px 0px;
     color: var(--primary);
     font-size: 1.3em;
 }
-#searchFilters input:checked + label, #searchFilters label:hover {
+#searchFilters label:hover {
     background-color: var(--secondary);
+}
+#searchFilters input:checked + label {
+    background-color: var(--secondary);
+    box-shadow: 0px 0px 10px #0000002b;
 }
 #searchInfo {
     display: flex;
@@ -207,8 +233,8 @@ header {
     margin: 0px 11px 0 9px;
 }
 
-/* ACCOMODATION SECTION STYLE */
-/* general accomodation section styles */
+/* STYLE de la SECTION HEBERGEMENT */
+/* Styles généraux de la section */
 #accomodationSection {
     display: flex;
     margin-top: 37px;
@@ -231,6 +257,12 @@ header {
 .rating .inactive {
     color: var(--grey);
 }
+.accomodation-card:hover, .popular-card:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.accomodation-card:hover img, .popular-card:hover img {
+    opacity: 0.8;
+}
 
 /* Style Section hébergment conteneur de gauche "hébergements à Marseille" */
 
@@ -250,6 +282,7 @@ header {
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
     background-color: #FFFFFF;
     margin-bottom: 30px;
+    transition: box-shadow 0.2s;
 }
 
 .accomodation-card .bottom-container {
@@ -271,6 +304,7 @@ header {
     border-radius: 20px 20px 0px 0px;
     border: 5px solid #FFFFFF;
     height: 124px;
+    transition: opacity 0.2s;
 }
 .accomodation-card-container {
     display:flex ;
@@ -295,12 +329,17 @@ header {
     color: var(--primary);
 }
 .popular-card {
-    display: flex;
     background-color: #FFFFFF;
     border-radius: 20px;
+    overflow: hidden;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 33px;
+    transition: box-shadow 0.2s;
 }
+.popular-card>a {
+    display: flex;
+}
+
 .popular-card img {
     width: 37%;
     object-fit: cover;
@@ -308,6 +347,7 @@ header {
     border: 5px solid #FFFFFF;
     border-radius: 20px 0px 0px 20px;
     box-sizing: border-box;
+    transition: opacity 0.2s;
 }
 .popular-card .right-container {
     padding: 16px 22px 12px 15px;
@@ -341,6 +381,13 @@ header {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s;
+}
+.activity-card:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.activity-card:hover h3 {
+    height: 75px;
 }
 .activity-card img {
     object-fit: cover;
@@ -353,10 +400,13 @@ header {
     bottom: 0px;
     background-color: #FFFFFF;
     width: 100%;
-    line-height:56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
     padding-left: 19px;
     padding-right: 19px;
     box-sizing: border-box;
+    transition: height 0.3s;
 }
 
 
@@ -378,4 +428,212 @@ footer ul {
 }
 footer ul li {
     line-height: 31px;
+}
+footer a:hover, footer a:focus {
+    color: var(--dark-grey);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1140px) {
+    .filter-buttons-container {
+        margin: -18px 0 0 -18px;
+        width: calc(100% + 18px);
+    }
+    #searchFilters p{
+        margin-right: 18px;
+    }
+    #searchFilters label{
+        margin: 18px 0 0 18px;
+    }
+
+}
+@media screen and (min-width:768px) and (max-width: 991px) {
+    #mainContainer {
+        padding: 0 72px;
+    }
+    /* header */
+    #topNavigation ul li a{
+        padding: 0;
+    }
+
+    #topNavigation ul li:first-child {
+        padding-right: 68px;
+    }
+    /* formulaire de recherche */
+    #searchFilters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #searchFilters label:hover {
+        background-color: unset;
+        box-shadow: unset;
+    }
+    #searchFilters p {
+        margin: 0 0 15px 0;
+    }
+
+    /* section hébergment */
+    #accomodationSection {
+        flex-direction: column;
+    }
+    .accomodation-card h3, .popular-card .right-container h3 {
+        font-size: calc(0.5em + 0.8vw);
+    }
+
+    /* les plus populaires */
+    .most-popular-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .popular-card {
+        width:31%;
+    }
+    .popular-card img {
+        width: 42%
+    }
+    .popular-card .right-container {
+        padding: 12px;
+    }
+    .popular-card .right-container p {
+        font-size: 0.8125em;
+    }
+    /* activités */
+    .activity-card h3 {
+        height: calc(70px - 0.5vw);
+        font-size: calc(0.85em + 0.2vw);
+    }
+    .activity-card img {
+        height: 26.1vw;
+    }
+    /* footer */
+    footer nav>div:nth-child(n+2) {
+        margin-left: 10%;
+    }
+    
+}
+@media screen and (max-width: 767px) {
+    #mainContainer {
+        padding: 0;
+    }
+    header {
+        flex-direction: column;
+    }
+    #headerLogo {
+        padding: 21px 0 0 0;
+        margin: 0 auto 50px;
+    }
+    #topNavigation {
+        justify-content: center;
+    }
+    #topNavigation ul {
+        width: 100%;
+    }
+    #topNavigation ul li {
+        width: 50%;
+        padding: 0 !important;
+    }
+    #topNavigation ul li a {
+        justify-content: center;
+        padding-bottom: 23px;
+        width: 100%;
+        border-bottom: 3px solid var(--light-grey);
+    }
+    #topNavigation ul li a:hover, #topNavigation ul li a:active, #topNavigation ul li a:focus{
+        border-top: none;
+        border-color: var(--primary);
+    }
+
+    #searchSection {
+        margin-top: 31px;
+        padding: 0 20px;
+    }
+    #searchSection h1 + p {
+        margin-top: 13px;
+    }
+    #searchBox {
+        margin: 36px 2px 34px;
+    }
+    #searchBox #locationInput {
+        width: 100%;
+    }
+    #searchBox #locationSubmit span{
+        display: none;
+    }
+    #searchBox #locationSubmit i {
+        display: inline;
+    }
+    #searchFilters {
+        padding: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #searchFilters p {
+        margin: 0 0 15px 0;
+    }
+    #searchFilters label {
+        font-size: calc(0.39em + 1.4vw);
+        margin: 14px 0 0 14px;
+        padding: 13px;
+        min-height: 50px;
+    }
+    #searchFilters label:hover {
+        background-color: unset;
+        box-shadow: unset;
+    }
+    #searchFilters label i {
+        padding-right: 5px;
+    }
+    .filter-buttons-container {
+        margin: -14px 0 0 -14px;
+        width: calc(100% + 14px);
+    }
+    .filter-buttons-container>div {
+        width: 50%;
+    }
+    #accomodationSection {
+        flex-direction: column-reverse;
+    }
+    .most-popular-container {
+        flex-direction: column;
+    }
+    .popular-card {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #accomodationSection #containerRight, #accomodationSection #containerLeft{
+        flex:unset;
+        padding: 0 20px 37px;
+        border-radius: unset;
+    }
+    .accomodation-card-container {
+        flex-direction: column;
+    }
+    .accomodation-card {
+        width: 100%;
+    }
+    #activities>div {
+        flex-direction: column;
+    }
+    #activities {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .activity-card {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+    .activity-card img {
+        height: 190px;
+    }
+    .activity-card h3 {
+        height: 56px;
+    }
+    footer nav {
+        flex-direction: column;
+    }
+    footer nav>div:nth-child(n+2){
+        margin-left: 0;
+        margin-top: 40px;
+    }
 }
