@@ -1,5 +1,5 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 
 :root {
     --primary: #0065FC;
@@ -136,7 +136,7 @@ button {
 }
 
 #topNavigation ul li a {
-    padding: 0 34px 0 34px;
+    padding: 0 34px;
     height: 100%;
     align-items: end;
 }
@@ -150,7 +150,7 @@ button {
         0.1px -0.1px 0 var(--primary),
         -0.1px 0.1px 0 var(--primary),
         0.1px 0.1px 0 var(--primary);
-    transition: text-shadow .2s;
+    /*font-weight:500;*/
     color: var(--primary);
     border-top: solid var(--primary) 2px;
 }
@@ -341,6 +341,7 @@ button {
 
 .accomodation-card .bottom-container p {
     font-size: 0.875em;
+    font-weight: 600;
 }
 
 .accomodation-card img {
@@ -393,6 +394,7 @@ button {
 .popular-card .right-container p {
     margin-top: 6px;
     font-size: 0.875em;
+    font-weight:600;
 }
 
 .popular-card .rating {
@@ -476,7 +478,7 @@ footer a:focus {
 }
 
 /* MEDIA QUERIES */
-
+/*
 @media screen and (max-width: 1140px) {
     .filter-buttons-container {
         margin: -18px 0 0 -18px;
@@ -491,12 +493,12 @@ footer a:focus {
         margin: 18px 0 0 18px;
     }
 
-}
+} */
 
 /* -------------------------------------------------------------------------- */
 /*                               STYLE TABLETTE                               */
 /* -------------------------------------------------------------------------- */
-@media screen and (min-width:768px) and (max-width: 991px) {
+@media screen and (max-width: 991px) {
     #mainContainer {
         padding: 0 72px;
     }
@@ -520,15 +522,23 @@ footer a:focus {
         align-items: flex-start;
         padding: 0;
     }
-
+    .filter-buttons-container {
+            margin: -18px 0 0 -18px;
+            width: calc(100% + 18px);
+    }
+    #searchFilters label {
+        margin: 18px 0 0 18px;
+    }
     #searchFilters label:hover {
         background-color: unset;
         box-shadow: unset;
     }
 
     #searchFilters p {
-        margin: 0 0 15px 0;
+        margin: 0 18px 15px 0;
     }
+
+    
 
     /* -------------------------------------------------------------------------- */
     /*                             section hébergment Style Tablette              */
@@ -551,9 +561,8 @@ footer a:focus {
         margin-top: 34px;
     }
 
-    .accomodation-card h3,
     .popular-card .right-container h3 {
-        font-size: calc(0.5em + 0.8vw);
+        font-size: 0.875em;
     }
 
     /* -------------------------------------------------------------------------- */
@@ -576,10 +585,6 @@ footer a:focus {
         padding: 12px;
     }
 
-    .popular-card .right-container p {
-        font-size: 0.8125em;
-    }
-
     /* -------------------------------------------------------------------------- */
     /*                          activités style tablette                          */
     /* -------------------------------------------------------------------------- */
@@ -589,7 +594,6 @@ footer a:focus {
 
     .activity-card h3 {
         height: calc(70px - 0.5vw);
-        font-size: calc(0.85em + 0.2vw);
     }
 
     .activity-card img {
@@ -688,7 +692,8 @@ footer a:focus {
     }
 
     #searchFilters label {
-        font-size: calc(0.39em + 1.4vw);
+        /*font-size: calc(0.39em + 1.4vw);*/
+        font-size: 0.6875em;
         margin: 14px 0 0 14px;
         padding: 13px;
         min-height: 50px;
@@ -701,6 +706,7 @@ footer a:focus {
 
     #searchFilters label i {
         padding-right: 5px;
+        font-size: 1.6em;
     }
 
     .filter-buttons-container {
@@ -735,15 +741,17 @@ footer a:focus {
         width: 100%;
         margin-bottom: 10px;
     }
+    .popular-card .right-container h3 {
+        font-size: 1em;
+    }
 
     #accomodationSection #containerLeft {
-        margin-right: 0;
         background-color: #FFFFFF;
+        margin-bottom: 18px;
     }
 
     #accomodationSection #containerRight,
     #accomodationSection #containerLeft {
-        width: auto;
         padding: 0 20px 37px;
         border-radius: unset;
     }
@@ -763,10 +771,15 @@ footer a:focus {
 
     .accomodation-card {
         width: 100%;
+        margin-bottom: 12px;
     }
 
     .accomodation-card img {
-        height: 33vw;
+        height: 30vw;
+        max-height: 230px;
+    }
+    .accomodation-card .bottom-container {
+        height: 75px;
     }
 
     #accomodationSection #containerLeft>a:last-of-type {
@@ -800,7 +813,8 @@ footer a:focus {
     }
 
     .activity-card img {
-        height: 50.66vw;
+        height: 46vw;
+        max-height: 275px;
     }
 
     .activity-card h3 {
