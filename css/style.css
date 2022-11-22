@@ -471,9 +471,14 @@ footer ul {
 footer ul li {
     line-height: 31px;
 }
-
+footer a h3,
+footer a h3 {
+    font-weight: 400;
+}
 footer a:hover,
-footer a:focus {
+footer a:focus,
+footer a:hover h3,
+footer a:focus h3 {
     color: var(--dark-grey);
 }
 
